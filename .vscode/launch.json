@@ -8,7 +8,7 @@
 			"type": "pwa-msedge",
 			"request": "launch",
 			"name": "Debug in Edge",
-			"url": "http://localhost:5500/other/numToWords.html",
+			"url": "http://localhost:65097",
 			"webRoot": "${workspaceFolder}"
 		}
 	]

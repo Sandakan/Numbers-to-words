@@ -96,7 +96,6 @@ function zero(strLength) {
 // ? /////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const threeParts = (str) => {
 	//This function separates the input into parts which has only 3 elements maximum in one part. It could be parts with 1 or 2 elements.
-	int = Math.floor(str.split('').length / 3); //Holds the value which of how many parts that can be broke in input. **Without adding extra 1 if their is a remainder.**
 	let strLength = str.length;
 	if (strLength % 3 > 0) int++; //this command checks how many parts can be broke in input. If it has a remainder, this adds another 1 part to fill that element.
 	for (q = 1; q <= int; q++) {
@@ -148,11 +147,20 @@ function hundreds(position, part, extraOne = '') {
 }
 // ? ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 function main(parts, output) {
-	//This is the main function which decides how the convertion should work. It loops through number of parts and pass the number to the convert function  as an argument while checks the number of elements of the selected part and passes it too.
+	//This is the main function which decides how the convert function should work. It loops through number of parts and pass the number to the convert function  as an argument while checks the number of elements of the selected part and passes it too.
 	for (let x = 0; x < parts; x++) {
 		if (x !== parts - 1) availableExtras = addExtras[x];
 		else availableExtras = ''; // This adds extras like thousand,million.etc to the output.
-		convert(output[x].length, x, parts);
+		// output[x].length == 1
+		// 	? convert(1, x, parts)
+		// 	: output[x].length == 2
+		// 	? convert(2, x, parts)
+		// 	: output[x].length == 3
+		// 	? convert(3, x, parts)
+		// 	: '';
+		if (output[x].length == 1) convert(1, x, parts);
+		else if (output[x].length == 2) convert(2, x, parts);
+		else if (output[x].length == 3) convert(3, x, parts);
 	}
 }
 // ? //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -176,9 +184,9 @@ function convert(digits, whichPart) {
 // ? ////////////////////////// LISTENING INPUT AND OTHER SIMPLE COMMANDS GOES HERE ///////////////////////////////////
 document.getElementById('btn').addEventListener('click', () => {
 	let value = document.getElementById('input').value; //listens to an input from the USER
-	inputParts = [];
 	if (/\d/gim.test(value)) {
 		let input = value.replace(/\D/gim, ''); // removes the spaces and non-digit characters globally and case-insensitively.
+		int = Math.floor(input.split('').length / 3); //Holds the value which of how many parts that can be broke in input. **Without adding extra 1 if their is a remainder.**
 		threeParts(input); //Above functions are called here.
 		main(int, inputParts);
 		let output = res.trim();
