@@ -1,0 +1,22 @@
+{
+	"name": "numbers-to-words",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"compile": "tsc --watch"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Sandakan/Numbers-to-words.git"
+	},
+	"author": "Sandakan Nipunajith",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Sandakan/Numbers-to-words/issues"
+	},
+	"homepage": "https://github.com/Sandakan/Numbers-to-words#readme",
+	"dependencies": {
+		"typescript": "^4.5.5"
+	}
+}

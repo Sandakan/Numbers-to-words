@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
 * {
 	margin: 0;
 	padding: 0;
@@ -8,6 +7,7 @@
 body {
 	height: 100vh;
 	width: 100vw;
+	font-family: 'Poppins', sans-serif;
 }
 .container {
 	height: 100%;
@@ -22,11 +22,10 @@ body {
 	color: #fff;
 	margin: 0 auto;
 	font-size: 100px;
-	font-family: 'Lato', sans-serif;
 }
 
 .container input {
-	font-family: 'Rubik', sans-serif;
+	font-weight: 500;
 }
 
 .container #input {
